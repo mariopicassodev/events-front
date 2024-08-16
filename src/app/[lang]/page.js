@@ -1,4 +1,4 @@
-import { getDictionary } from "../../get-dictionary";
+import { getDictionary } from "@/get-dictionary";
 import Counter from "../../components/counter";
 import LocaleSwitcher from "../../components/locale-switcher";
 

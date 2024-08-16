@@ -5,5 +5,13 @@
     "counter": {
         "increment": "Increment",
         "decrement": "Decrement"
+    },
+    "signin": {
+        "username": "Username",
+        "signin": "Sign in"
+    },
+    "navbar": {
+        "logout": "Logout",
+        "myevents": "My events"
     }
 }
