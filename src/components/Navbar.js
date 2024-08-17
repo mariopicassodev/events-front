@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { getDictionary } from "@/get-dictionary";
+import LocaleSwitcher from "./locale-switcher";
 
 
 export default async function Navbar({
@@ -12,7 +13,7 @@ export default async function Navbar({
                 <a className="btn btn-ghost text-xl">Events App</a>
             </div>
             <div className="flex-none">
-
+                <LocaleSwitcher />
                 <div className="dropdown dropdown-end">
                     <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                         <div className="w-10 rounded-full">
