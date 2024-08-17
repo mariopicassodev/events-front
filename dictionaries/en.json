@@ -1,17 +1,10 @@
 {
-    "server-component": {
-        "welcome": "Welcome"
-    },
-    "counter": {
-        "increment": "Increment",
-        "decrement": "Decrement"
-    },
-    "signin": {
-        "username": "Username",
-        "signin": "Sign in"
+    "init": {
+        "welcome": "Welcome!"
     },
     "navbar": {
         "logout": "Logout",
-        "myevents": "My events"
+        "myevents": "My events",
+        "signin": "Sign in"
     }
 }

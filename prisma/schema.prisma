@@ -16,7 +16,8 @@ datasource db {
 model User {
   id        Int      @id @default(autoincrement())
   email     String   @unique
-  name      String
+  name      String?
+  avatar    String?
   events    Event[]  @relation("EventOwner")
   applications Application[]
   createdAt DateTime @default(now())

@@ -1,12 +1,16 @@
 import Link from "next/link";
 import { getDictionary } from "@/get-dictionary";
-import LocaleSwitcher from "./locale-switcher";
+import { getServerSession } from "next-auth";
+import LocaleSwitcher from "./LocaleSwitcher";
+import LoginButton from "./LogInButton";
+import LogOutButton from "./LogOutButton";
 
 
 export default async function Navbar({
     params: { lang },
 }) {
     const dictionary = await getDictionary(lang);
+    const session = await getServerSession();
     return (
         <div className="navbar bg-base-100">
             <div className="flex-1">
@@ -14,21 +18,27 @@ export default async function Navbar({
             </div>
             <div className="flex-none">
                 <LocaleSwitcher />
-                <div className="dropdown dropdown-end">
+                {session ? (
+                    <div className="dropdown dropdown-end">
                     <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                         <div className="w-10 rounded-full">
                             <img
-                                alt="Tailwind CSS Navbar component"
-                                src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                                alt="User Avatar"
+                                src={session.user.image} />
                         </div>
                     </div>
                     <ul
                         tabIndex={0}
                         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                        <li><Link href="/logout">{dictionary.navbar.logout}</Link></li>
+                        <li><LogOutButton dictionary={dictionary} lang={lang}/></li>
                         <li><Link href="/myevents">{dictionary.navbar.myevents}</Link></li>
                     </ul>
                 </div>
+                ) : (
+                    <LoginButton dictionary={dictionary} lang={lang}/>
+                )
+            }
+
             </div>
         </div>
     )

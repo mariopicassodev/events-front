@@ -5,20 +5,25 @@ import { match as matchLocale } from "@formatjs/intl-localematcher";
 import Negotiator from "negotiator";
 
 function getLocale(request) {
+
     // Negotiator expects plain object so we need to transform headers
     const negotiatorHeaders = {};
     request.headers.forEach((value, key) => {
         negotiatorHeaders[key] = value;
     });
 
+
     // Use negotiator and intl-localematcher to get best locale
     const locales = i18n.locales;
+
 
     let languages = new Negotiator({ headers: negotiatorHeaders }).languages(
         locales
     );
 
+
     const locale = matchLocale(languages, locales, i18n.defaultLocale);
+
 
     return locale;
 }
