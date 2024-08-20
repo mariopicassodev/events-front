@@ -1,9 +1,12 @@
 {
-    "server-component": {
-        "welcome": "Bienvenido"
+    "init": {
+        "welcome": "Bienvenido!"
     },
-    "counter": {
-        "increment": "Incrementar",
-        "decrement": "Disminuir"
+
+
+    "navbar": {
+        "logout": "Cerrar sesión",
+        "myevents": "Mis eventos",
+        "signin": "Iniciar sesión"
     }
 }
