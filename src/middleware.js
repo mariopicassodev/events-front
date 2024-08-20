@@ -2,34 +2,36 @@ import { NextResponse } from "next/server";
 import { i18n } from "../i18n-config";
 
 import { match as matchLocale } from "@formatjs/intl-localematcher";
-import Negotiator from "negotiator";
+import { cookies } from 'next/headers'
+import { getLocale } from "@/utils/path-name";
 
-function getLocale(request) {
+function getNextLocale(request) {
 
-    // Negotiator expects plain object so we need to transform headers
-    const negotiatorHeaders = {};
-    request.headers.forEach((value, key) => {
-        negotiatorHeaders[key] = value;
-    });
-
+    // Get the languages from cookies
+    const language = cookies(request).get('NEXT_LOCALE').value;
 
     // Use negotiator and intl-localematcher to get best locale
     const locales = i18n.locales;
 
-
-    let languages = new Negotiator({ headers: negotiatorHeaders }).languages(
-        locales
-    );
-
-
-    const locale = matchLocale(languages, locales, i18n.defaultLocale);
-
+    const locale = matchLocale(language, locales, i18n.defaultLocale);
 
     return locale;
 }
 
+const protectedRoutes = ['/en/dashboard', '/es/dashboard']
+
 export function middleware(request) {
     const pathname = request.nextUrl.pathname;
+
+    // Check if the user is authenticated
+    const sessionCookie = cookies(request).get('next-auth.session-token');
+    const sessionToken = sessionCookie ? sessionCookie.value : null;
+
+    const isProtectedRoute = protectedRoutes.includes(pathname);
+    const currentLocale = getLocale(pathname) || "";
+    if (isProtectedRoute && !sessionToken) {
+        return NextResponse.redirect(new URL(`/${currentLocale}`, request.url));
+    }
 
     // Check if there is any supported locale in the pathname
     const pathnameIsMissingLocale = i18n.locales.every(
@@ -39,7 +41,7 @@ export function middleware(request) {
 
     // Redirect if there is no locale
     if (pathnameIsMissingLocale) {
-        const locale = getLocale(request);
+        const locale = getNextLocale(request);
 
         // e.g. incoming request is /products
         // The new URL is now /en-US/products
@@ -50,6 +52,8 @@ export function middleware(request) {
             )
         );
     }
+
+
 }
 
 export const config = {
