@@ -4,13 +4,15 @@ import { getServerSession } from "next-auth";
 import LocaleSwitcher from "./LocaleSwitcher";
 import LoginButton from "./LogInButton";
 import LogOutButton from "./LogOutButton";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 
 
 export default async function Navbar({
     params: { lang },
 }) {
     const dictionary = await getDictionary(lang);
-    const session = await getServerSession();
+    const session = await getServerSession(authOptions);
+
     return (
         <div className="navbar bg-base-100">
             <div className="flex-1">
