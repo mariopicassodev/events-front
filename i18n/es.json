@@ -7,6 +7,7 @@
     "navbar": {
         "logout": "Cerrar sesión",
         "myevents": "Mis eventos",
-        "signin": "Iniciar sesión"
+        "signin": "Iniciar sesión",
+        "createevent": "Crear evento"
     }
 }

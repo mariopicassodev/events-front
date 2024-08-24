@@ -5,6 +5,7 @@
     "navbar": {
         "logout": "Logout",
         "myevents": "My events",
-        "signin": "Sign in"
+        "signin": "Sign in",
+        "createevent": "Create event"
     }
 }

@@ -4,13 +4,14 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npx prisma generate && next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
     "@formatjs/intl-localematcher": "^0.5.4",
     "@prisma/client": "^5.18.0",
+    "js-cookie": "^3.0.5",
     "next": "14.2.5",
     "next-auth": "^4.24.7",
     "react": "^18",

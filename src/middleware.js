@@ -8,7 +8,8 @@ import { getLocale } from "@/utils/path-name";
 function getNextLocale(request) {
 
     // Get the languages from cookies
-    const language = cookies(request).get('NEXT_LOCALE').value;
+    const cookie = cookies(request).get('NEXT_LOCALE');
+    const language = cookie ? cookie.value : i18n.defaultLocale;
 
     // Use negotiator and intl-localematcher to get best locale
     const locales = i18n.locales;
