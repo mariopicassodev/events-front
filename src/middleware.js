@@ -23,7 +23,6 @@ const protectedRoutes = ['/en/dashboard', '/es/dashboard']
 
 export function middleware(request) {
     const pathname = request.nextUrl.pathname;
-    console.log(cookies(request).get('Bearer'));
 
     // Check if the user is authenticated
     const sessionCookie = cookies(request).get('next-auth.session-token');

@@ -33,7 +33,8 @@ export default async function Navbar({
                         tabIndex={0}
                         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
                         <li><LogOutButton dictionary={dictionary} lang={lang}/></li>
-                        <li><Link href="/myevents">{dictionary.navbar.myevents}</Link></li>
+                        <li><Link href="/my-events">{dictionary.navbar.myevents}</Link></li>
+                        <li><Link href="/create-event">{dictionary.navbar.createevent}</Link></li>
                     </ul>
                 </div>
                 ) : (
