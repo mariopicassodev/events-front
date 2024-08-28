@@ -1,0 +1,13 @@
+{
+    "init": {
+        "welcome": "Bienvenido!"
+    },
+
+
+    "navbar": {
+        "logout": "Cerrar sesión",
+        "myevents": "Mis eventos",
+        "signin": "Iniciar sesión",
+        "createevent": "Crear evento"
+    }
+}
