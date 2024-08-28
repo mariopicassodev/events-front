@@ -1,18 +1,14 @@
-import Cookies from 'js-cookie';
+'use server'
+
+import { cookies } from 'next/headers';
+import { fromJWEtoJWT } from '@/utils/jwt';
+
 export async function createEvent(name, description, location, schedule, fee, maxCapacity) {
 
-    const token = Cookies.get('Bearer');
-    const user_id = Cookies.get('user_id');
-    console.log(token, user_id);
-
-    // print all parameeters one per line
-    console.log(name);
-    console.log(description);
-    console.log(location);
+    const token = cookies().get('next-auth.session-token').value;
+    const user_id = cookies().get('user_id').value;
+    const jwt_token = await fromJWEtoJWT(token);
     console.log(schedule);
-    console.log(fee);
-    console.log(maxCapacity);
-
 
     const query = `
         mutation {
@@ -42,12 +38,21 @@ export async function createEvent(name, description, location, schedule, fee, ma
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
+            'Authorization': `Bearer ${jwt_token}`
         },
         body: JSON.stringify({ query })
     });
 
 
+    const status = response.status;
+    const statusText = response.statusText;
+    const data = await response.json();
 
-    return response;
+    // Ensure data is a plain object
+    if (data && typeof data === 'object' && data.constructor === Object) {
+        return {data, status, statusText};
+    } else {
+        throw new Error('Response is not a plain object');
+    }
+
 }

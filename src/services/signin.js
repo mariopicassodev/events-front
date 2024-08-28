@@ -1,14 +1,12 @@
 import { cookies } from 'next/headers';
+import { fromJWEtoJWT } from '@/utils/jwt';
 
 export async function signInServer(name, email) {
-
-    const token = cookies().get('Bearer');
 
     const response = await fetch(`${process.env.SERVER_URL}/api/auth/signin`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token.value}`
         },
         body: JSON.stringify({
             email: email,

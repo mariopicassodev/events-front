@@ -1,21 +1,32 @@
 "use client";
 import { useForm } from "react-hook-form";
+import { useState } from "react";
 import { createEvent } from "@/services/create-event";
+import Toast from "./Toast";
 
 export default function CreateEventForm() {
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const [toast, setToast] = useState({ message: "", type: "", visible: false });
 
     const onSubmit = data => {
-        console.log(data);
+
         createEvent(data.eventName, data.description, data.place, `${data.date}T${data.hour}:00Z`, data.fee, data.maxCapacity)
             .then(response => {
                 if (response.status === 200) {
-                    alert("Event created successfully");
-                } else {
-                    alert("Error creating event");
+                    //alert("Event created successfully");
+                    setToast({ message: "Event created successfully", type: "success", visible: true });
+                }
+                else {
+                    //alert("Error creating event");
+                    setToast({ message: `Error creating event\n ${response.status}: ${response.statusText}`, type: "error", visible: true });
                 }
             });
     };
+
+    const handleCloseToast = () => {
+        setToast({ ...toast, visible: false });
+    };
+
 
     return (
         <div className="container mx-auto p-6">
@@ -111,6 +122,7 @@ export default function CreateEventForm() {
                     <button type="submit" className="btn btn-primary">Submit</button>
                 </form>
             </div>
+            {toast.visible && <Toast message={toast.message} type={toast.type} onClose={handleCloseToast} />}
         </div>
     );
 }

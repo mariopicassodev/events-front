@@ -12,15 +12,10 @@ export const authOptions = {
     ],
     callbacks: {
         signIn: async (account) => {
-
-            cookies().set(account.account.token_type, account.account.id_token, { secure: true });
-            // send to server email, token and name
             const response = await signInServer(account.user.name, account.user.email);
 
             if (response.status !== 200) {
-
-                // TODO: handle better the error
-                return false;
+                throw new Error(`${response.status}: ${response.body}`);
             }
             // store user_id in cookie
             const data = await response.json();
