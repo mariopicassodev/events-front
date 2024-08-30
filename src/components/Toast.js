@@ -15,7 +15,7 @@ export default function Toast({ message, type, onClose }) {
 
     if (type === "error") {
         return (
-            <div className="toast toast-top toast-end">
+            <div className="toast toast-top toast-end z-50">
                 <div className="alert alert-error">
                     <span>{message}</span>
                 </div>
@@ -25,7 +25,7 @@ export default function Toast({ message, type, onClose }) {
 
     else if (type === "success") {
         return (
-            <div className="toast toast-top toast-end">
+            <div className="toast toast-top toast-end z-50">
                 <div className="alert alert-success">
                     <span>{message}</span>
                 </div>
@@ -35,7 +35,7 @@ export default function Toast({ message, type, onClose }) {
 
     else if (type === "warning") {
         return (
-            <div className="toast toast-top toast-end">
+            <div className="toast toast-top toast-end z-50">
                 <div className="alert alert-warning">
                     <span>{message}</span>
                 </div>
@@ -44,7 +44,7 @@ export default function Toast({ message, type, onClose }) {
     }
 
     return (
-        <div className="toast toast-top toast-end">
+        <div className="toast toast-top toast-end z-50">
             <div className={"alert alert-info"}>
                 <span>{message}</span>
             </div>

@@ -9,5 +9,13 @@
         "myevents": "Mis eventos",
         "signin": "Iniciar sesión",
         "createevent": "Crear evento"
+    },
+    "dashboard": {
+        "title": "Próximos eventos"
+    },
+    "upcomingEvent": {
+        "location": "Ubicación",
+        "maxCapacity": "Capacidad",
+        "reserve": "Reservar"
     }
 }
