@@ -3,23 +3,14 @@
 import { cookies } from 'next/headers';
 import { fromJWEtoJWT } from '@/utils/jwt';
 
-export async function createEvent(name, description, location, schedule, fee, maxCapacity) {
+export async function upcomingEvents() {
 
     const token = cookies().get('next-auth.session-token').value;
-    const user_id = cookies().get('user_id').value;
     const jwt_token = await fromJWEtoJWT(token);
 
     const query = `
-        mutation {
-            createEvent(
-                name: "${name}",
-                description: """${description}""",
-                location: "${location}",
-                schedule: "${schedule}",
-                ownerId: ${user_id},
-                fee: ${fee},
-                maxCapacity: ${maxCapacity}
-            )
+       query {
+            upcomingEvents
             {
                 id
                 name
@@ -32,9 +23,6 @@ export async function createEvent(name, description, location, schedule, fee, ma
             }
         }
     `;
-
-    console.log(query);
-
     const response = await fetch(`http://localhost:4000/graphql`, {
         method: 'POST',
         headers: {
@@ -44,11 +32,10 @@ export async function createEvent(name, description, location, schedule, fee, ma
         body: JSON.stringify({ query })
     });
 
-
     const status = response.status;
     const statusText = response.statusText;
     const data = await response.json();
-
+    console.log(data);
     // Ensure data is a plain object
     if (data && typeof data === 'object' && data.constructor === Object) {
         return {data, status, statusText};

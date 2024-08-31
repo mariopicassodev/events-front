@@ -7,5 +7,14 @@
         "myevents": "My events",
         "signin": "Sign in",
         "createevent": "Create event"
+    },
+    "dashboard": {
+        "title": "Upcoming Events"
+    },
+    "upcomingEvent": {
+        "location": "Location",
+        "maxCapacity": "Capacity",
+        "reserve": "Reserve"
     }
+
 }
