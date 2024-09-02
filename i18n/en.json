@@ -6,15 +6,34 @@
         "logout": "Logout",
         "myevents": "My events",
         "signin": "Sign in",
-        "createevent": "Create event"
+        "createevent": "Create event",
+        "reservations": "Reservations",
+        "events": "Events"
     },
-    "dashboard": {
+    "events": {
+        "events": "Events",
         "title": "Upcoming Events"
+    },
+    "reservations": {
+        "reservations": "Reservations",
+        "title": "My Reservations"
     },
     "upcomingEvent": {
         "location": "Location",
         "maxCapacity": "Capacity",
-        "reserve": "Reserve"
+        "reserve": "Reserve",
+        "successReserve": "Spot reserved!"
+    },
+    "reservation": {
+        "cancel": "Cancel",
+        "successCancel": "Reservation canceled!",
+        "location": "Location",
+        "maxCapacity": "Capacity",
+        "status": "Status",
+        "statusOptions": {
+            "ACCEPTED": "Accepted",
+            "PENDING": "Pending",
+            "REJECTED": "Rejected"
+        }
     }
-
 }
