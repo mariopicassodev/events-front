@@ -2,20 +2,38 @@
     "init": {
         "welcome": "Bienvenido!"
     },
-
-
     "navbar": {
         "logout": "Cerrar sesión",
         "myevents": "Mis eventos",
         "signin": "Iniciar sesión",
-        "createevent": "Crear evento"
+        "createevent": "Crear evento",
+        "reservations": "Mis reservas",
+        "events": "Eventos"
     },
-    "dashboard": {
+    "events": {
+        "events": "Eventos",
         "title": "Próximos eventos"
+    },
+    "reservations": {
+        "reservations": "Reservas",
+        "title": "Mis reservas"
     },
     "upcomingEvent": {
         "location": "Ubicación",
         "maxCapacity": "Capacidad",
-        "reserve": "Reservar"
+        "reserve": "Reservar",
+        "successReserve": "Lugar reservado!"
+    },
+    "reservation": {
+        "cancel": "Cancelar",
+        "successCancel": "Reserva cancelada!",
+        "location": "Ubicación",
+        "maxCapacity": "Capacidad",
+        "status": "Estado",
+        "statusOptions": {
+            "PENDING": "Pendiente",
+            "ACCEPTED": "Aceptado",
+            "REJECTED": "Reachazado"
+        }
     }
 }

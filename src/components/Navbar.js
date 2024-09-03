@@ -1,10 +1,11 @@
 import Link from "next/link";
 import { getDictionary } from "@/get-dictionary";
 import { getServerSession } from "next-auth";
-import LocaleSwitcher from "./LocaleSwitcher";
-import LoginButton from "./LogInButton";
-import LogOutButton from "./LogOutButton";
+import LocaleSwitcher from "./buttons/LocaleSwitcher";
+import LoginButton from "./buttons/LogInButton";
+import LogOutButton from "./buttons/LogOutButton";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import Image from 'next/image';
 
 
 export default async function Navbar({
@@ -24,9 +25,12 @@ export default async function Navbar({
                     <div className="dropdown dropdown-end">
                     <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                         <div className="w-10 rounded-full">
-                            <img
+                            <Image
                                 alt="User Avatar"
-                                src={session.user.image} />
+                                src={session.user.image}
+                                width={40}
+                                height={40}
+                            />
                         </div>
                     </div>
                     <ul
@@ -35,6 +39,8 @@ export default async function Navbar({
                         <li><LogOutButton dictionary={dictionary} lang={lang}/></li>
                         <li><Link href="/my-events">{dictionary.navbar.myevents}</Link></li>
                         <li><Link href="/create-event">{dictionary.navbar.createevent}</Link></li>
+                        <li><Link href="/events">{dictionary.navbar.events}</Link></li>
+                        <li><Link href="/reservations">{dictionary.navbar.reservations}</Link></li>
                     </ul>
                 </div>
                 ) : (

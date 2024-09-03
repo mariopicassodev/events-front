@@ -1,7 +1,6 @@
-import { getDictionary } from "@/get-dictionary";
-import ReserveButton from "./ReserveButton";
+import ReserveButton from "@/components/buttons/ReserveButton";
 
-export default async function UpcomingEvent({dictionary, event}) {
+export default async function UpcomingEventCard({dictionary, event}) {
     return (
         <div className="card bg-base-100 w-96 shadow-xl">
             <div className="card-body">
