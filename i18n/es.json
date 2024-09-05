@@ -35,5 +35,16 @@
             "ACCEPTED": "Aceptado",
             "REJECTED": "Reachazado"
         }
+    },
+    "myEvents": {
+        "title": "Mis eventos",
+        "location": "Ubicación",
+        "maxCapacity": "Capacidad",
+        "createdAt": "Fecha de creación",
+        "reservations": "Reservas",
+        "pendingReservations": "Reservas pendientes",
+        "acceptedReservations": "Reservas aceptadas",
+        "rejectedReservations": "Reservas rechazadas",
+        "manageReservation": "Gestionar reservas"
     }
 }

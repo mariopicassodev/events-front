@@ -1,7 +1,7 @@
 
 export default async function ReservationCard({ dictionary, reservation }) {
     return (
-        <div className>
+        <div className="card bg-base-100 w-96 shadow-xl">
                 <div className="card-body">
                     <h2 className="card-title">{reservation.event.name}</h2>
                     <p>{reservation.event.description}</p>
