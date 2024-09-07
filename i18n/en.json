@@ -22,7 +22,9 @@
         "location": "Location",
         "maxCapacity": "Capacity",
         "reserve": "Reserve",
-        "successReserve": "Spot reserved!"
+        "successReserve": "Spot reserved!",
+        "successCancel": "Reservation canceled!",
+        "cancel": "Cancel reservation"
     },
     "reservation": {
         "cancel": "Cancel",
@@ -35,5 +37,16 @@
             "PENDING": "Pending",
             "REJECTED": "Rejected"
         }
+    },
+    "myEvents": {
+        "title": "My Events",
+        "location": "Location",
+        "maxCapacity": "Capacity",
+        "createdAt": "Created at",
+        "reservations": "Reservations",
+        "pendingReservations": "Pending reservations",
+        "acceptedReservations": "Accepted reservations",
+        "rejectedReservations": "Rejected reservations",
+        "manageReservation": "See reservations"
     }
 }
