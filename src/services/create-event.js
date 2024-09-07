@@ -35,7 +35,7 @@ export async function createEvent(name, description, location, schedule, fee, ma
 
     console.log(query);
 
-    const response = await fetch(`http://localhost:4000/graphql`, {
+    const response = await fetch(`${process.env.SERVER_URL}/graphql`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
