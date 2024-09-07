@@ -22,7 +22,9 @@
         "location": "Ubicación",
         "maxCapacity": "Capacidad",
         "reserve": "Reservar",
-        "successReserve": "Lugar reservado!"
+        "successReserve": "Lugar reservado!",
+        "successCancel": "Reserva cancelada!",
+        "cancel": "Cancelar reserva"
     },
     "reservation": {
         "cancel": "Cancelar",
@@ -35,5 +37,16 @@
             "ACCEPTED": "Aceptado",
             "REJECTED": "Reachazado"
         }
+    },
+    "myEvents": {
+        "title": "Mis eventos",
+        "location": "Ubicación",
+        "maxCapacity": "Capacidad",
+        "createdAt": "Fecha de creación",
+        "reservations": "Reservas",
+        "pendingReservations": "Reservas pendientes",
+        "acceptedReservations": "Reservas aceptadas",
+        "rejectedReservations": "Reservas rechazadas",
+        "manageReservation": "Ver reservas"
     }
 }
