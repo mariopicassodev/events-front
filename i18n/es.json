@@ -22,7 +22,9 @@
         "location": "Ubicación",
         "maxCapacity": "Capacidad",
         "reserve": "Reservar",
-        "successReserve": "Lugar reservado!"
+        "successReserve": "Lugar reservado!",
+        "successCancel": "Reserva cancelada!",
+        "cancel": "Cancelar reserva"
     },
     "reservation": {
         "cancel": "Cancelar",
@@ -45,6 +47,6 @@
         "pendingReservations": "Reservas pendientes",
         "acceptedReservations": "Reservas aceptadas",
         "rejectedReservations": "Reservas rechazadas",
-        "manageReservation": "Gestionar reservas"
+        "manageReservation": "Ver reservas"
     }
 }
