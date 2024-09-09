@@ -33,8 +33,6 @@ export async function createEvent(name, description, location, schedule, fee, ma
         }
     `;
 
-    console.log(query);
-
     const response = await fetch(`${process.env.SERVER_URL}/graphql`, {
         method: 'POST',
         headers: {
@@ -43,7 +41,6 @@ export async function createEvent(name, description, location, schedule, fee, ma
         },
         body: JSON.stringify({ query })
     });
-
 
     const status = response.status;
     const statusText = response.statusText;

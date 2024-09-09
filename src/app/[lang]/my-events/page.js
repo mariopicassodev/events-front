@@ -5,7 +5,6 @@ import MyEventCard  from "@/components/cards/MyEventCard";
 export default async function myEvents({params: {lang}}) {
     const dictionary = await getDictionary(lang);
     const myEvents = await getMyEvents();
-    console.log(JSON.stringify(myEvents));
 
     return (
         <div>
