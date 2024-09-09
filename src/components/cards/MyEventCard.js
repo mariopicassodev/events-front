@@ -1,6 +1,6 @@
 import ManageReservationButton from "../buttons/ManageReservationsButton"
 
-export default async function MyEventCard({ dictionary, event }) {
+export default async function MyEventCard({ dictionary, event, lang }) {
     return (
         <div className="card bg-base-100 w-96 shadow-xl">
             <div className="card-body">
@@ -16,7 +16,7 @@ export default async function MyEventCard({ dictionary, event }) {
 
 
                 <div className="card-actions justify-end">
-                    <ManageReservationButton event={event} dictionary={dictionary} />
+                    <ManageReservationButton event={event} dictionary={dictionary} lang={lang} />
                 </div>
             </div>
         </div>

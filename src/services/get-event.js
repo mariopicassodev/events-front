@@ -14,16 +14,18 @@ export default async function getEvent(eventId) {
     const query = `
         query {
             event(id: ${eventId}) {
-                description
-                fee
                 id
-                location
                 maxCapacity
                 name
                 createdAt
                 reservations {
                     id
                     status
+                    user {
+                        id
+                        name
+                        email
+                    }
                 }
             }
         }`
