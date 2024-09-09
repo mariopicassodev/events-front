@@ -32,8 +32,6 @@ export async function getMyReservations() {
             }
         }`
 
-    console.log(query);
-
     const response = await fetch(`${process.env.SERVER_URL}/graphql`, {
         method: 'POST',
         headers: {
@@ -46,7 +44,7 @@ export async function getMyReservations() {
     const status = response.status;
     const statusText = response.statusText;
     const data = await response.json();
-    console.log(JSON.stringify(data));
+
     // Ensure data is a plain object
     if (data && typeof data === 'object' && data.constructor === Object) {
         return { data, status, statusText };
