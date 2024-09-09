@@ -27,8 +27,6 @@ export async function getMyEvents() {
             }
         }`
 
-    console.log(query);
-
     const response = await fetch(`${process.env.SERVER_URL}/graphql`, {
         method: 'POST',
         headers: {
@@ -41,7 +39,6 @@ export async function getMyEvents() {
     const status = response.status;
     const statusText = response.statusText;
     const data = await response.json();
-    console.log(data);
 
     // Ensure data is a plain object
     if (data && typeof data === 'object' && data.constructor === Object) {

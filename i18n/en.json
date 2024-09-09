@@ -48,5 +48,16 @@
         "acceptedReservations": "Accepted reservations",
         "rejectedReservations": "Rejected reservations",
         "manageReservation": "See reservations"
+    },
+    "createEvent": {
+        "title": "Create event",
+        "name": "Name",
+        "description": "Description",
+        "location": "Location",
+        "capacity": "Capacity",
+        "date": "Date",
+        "time": "Time",
+        "fee": "Fee",
+        "submit": "Create event"
     }
 }

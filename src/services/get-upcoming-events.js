@@ -35,7 +35,7 @@ export async function upcomingEvents() {
     const status = response.status;
     const statusText = response.statusText;
     const data = await response.json();
-    console.log(data);
+
     // Ensure data is a plain object
     if (data && typeof data === 'object' && data.constructor === Object) {
         return {data, status, statusText};

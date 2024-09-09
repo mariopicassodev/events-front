@@ -21,8 +21,6 @@ export async function createReservation(event_id){
     }
     `;
 
-    console.log(query);
-
     const response = await fetch(`${process.env.SERVER_URL}/graphql`, {
         method: 'POST',
         headers: {

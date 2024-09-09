@@ -1,9 +1,12 @@
+import React from "react";
 import CreateEventForm from "@/components/CreateEventForm";
+import { getDictionary } from "@/get-dictionary";
 
-function CreateEventPage() {
+async function CreateEventPage( {params: {lang}} ) {
+    const dictionary = await getDictionary(lang);
     return (
         <div className="container mx-auto p-6">
-            <CreateEventForm />
+            <CreateEventForm dictionary={dictionary} />
         </div>
     );
 }
