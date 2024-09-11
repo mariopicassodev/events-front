@@ -1,6 +1,7 @@
 {
     "init": {
-        "welcome": "Welcome!"
+        "welcome": "Welcome!",
+        "deploy": "The backend is being deployed, please wait 5 minutes before login."
     },
     "navbar": {
         "logout": "Logout",
@@ -59,5 +60,21 @@
         "time": "Time",
         "fee": "Fee",
         "submit": "Create event"
+    },
+    "manageReservations": {
+        "title": "Manage Reservations",
+        "location": "Location",
+        "maxCapacity": "Capacity",
+        "name": "Name",
+        "email": "Email",
+        "status": "Status",
+        "actions": "Actions",
+        "PENDING": "Pending",
+        "ACCEPTED": "Accepted",
+        "REJECTED": "Rejected",
+        "accept": "Accept",
+        "reject": "Reject",
+        "successAccept": "Reservation accepted!",
+        "successReject": "Reservation rejected!"
     }
 }

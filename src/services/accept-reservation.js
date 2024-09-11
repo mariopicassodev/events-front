@@ -1,38 +1,24 @@
 'use server'
-
 import { cookies } from 'next/headers';
 import { fromJWEtoJWT } from '@/utils/jwt';
 
-
-export default async function getEvent(eventId) {
-
+export async function acceptReservation(event_id, reservation_id) {
     const token = cookies().get(`${process.env.COOKIES_PREFIX}next-auth.session-token`).value;
     const user_id = cookies().get('user_id').value;
-
     const jwt_token = await fromJWEtoJWT(token);
 
     const query = `
-        query {
-            event(id: ${eventId}) {
-                id
-                maxCapacity
-                name
-                createdAt
-                schedule
-                reservations {
+            mutation {
+                acceptReservation(
+                    eventId: ${event_id},
+                    reservationId: ${reservation_id}
+                )
+                {
                     id
                     status
-                    user {
-                        id
-                        name
-                        email
-                    }
                 }
             }
-        }`
-
-    console.log(query);
-
+            `;
     const response = await fetch(`${process.env.SERVER_URL}/graphql`, {
         method: 'POST',
         headers: {
@@ -45,7 +31,6 @@ export default async function getEvent(eventId) {
     const status = response.status;
     const statusText = response.statusText;
     const data = await response.json();
-    console.log(data);
 
     // Ensure data is a plain object
     if (data && typeof data === 'object' && data.constructor === Object) {

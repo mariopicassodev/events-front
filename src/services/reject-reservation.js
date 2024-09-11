@@ -1,37 +1,23 @@
 'use server'
-
 import { cookies } from 'next/headers';
 import { fromJWEtoJWT } from '@/utils/jwt';
 
-
-export default async function getEvent(eventId) {
-
+export async function rejectReservation(reservation_id) {
     const token = cookies().get(`${process.env.COOKIES_PREFIX}next-auth.session-token`).value;
     const user_id = cookies().get('user_id').value;
-
     const jwt_token = await fromJWEtoJWT(token);
 
     const query = `
-        query {
-            event(id: ${eventId}) {
-                id
-                maxCapacity
-                name
-                createdAt
-                schedule
-                reservations {
-                    id
-                    status
-                    user {
+                mutation {
+                    rejectReservation(
+                        reservationId: ${reservation.id}
+                    )
+                    {
                         id
-                        name
-                        email
+                        status
                     }
                 }
-            }
-        }`
-
-    console.log(query);
+            `;
 
     const response = await fetch(`${process.env.SERVER_URL}/graphql`, {
         method: 'POST',
@@ -45,7 +31,6 @@ export default async function getEvent(eventId) {
     const status = response.status;
     const statusText = response.statusText;
     const data = await response.json();
-    console.log(data);
 
     // Ensure data is a plain object
     if (data && typeof data === 'object' && data.constructor === Object) {
@@ -53,5 +38,4 @@ export default async function getEvent(eventId) {
     } else {
         throw new Error('Response is not a plain object');
     }
-
 }
