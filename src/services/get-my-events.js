@@ -20,6 +20,7 @@ export async function getMyEvents() {
                 maxCapacity
                 name
                 createdAt
+                schedule
                 reservations {
                     id
                     status

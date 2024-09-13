@@ -1,13 +1,15 @@
 import ManageReservationButton from "../buttons/ManageReservationsButton"
+import { formatTimestamp } from "@/utils/timestamp";
 
 export default async function MyEventCard({ dictionary, event, lang }) {
+
     return (
         <div className="card bg-base-100 w-96 shadow-xl">
             <div className="card-body">
                 <h2 className="card-title">{event.name}</h2>
                 <p>{dictionary.myEvents.location}: {event.location}</p>
-                <p>{event.schedule}</p>
-                <p>{dictionary.myEvents.createdAt}: {event.createdAt}</p>
+                <p>{formatTimestamp(event.schedule)}</p>
+                <p>{dictionary.myEvents.createdAt}: {formatTimestamp(event.createdAt)}</p>
                 <p>{event.fee}$</p>
                 <p>{dictionary.myEvents.maxCapacity}: {event.maxCapacity}</p>
                 <p>{dictionary.myEvents.reservations}: {event.reservations.length}</p>

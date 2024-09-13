@@ -1,38 +1,24 @@
 'use server'
-
 import { cookies } from 'next/headers';
 import { fromJWEtoJWT } from '@/utils/jwt';
 
-export async function getMyReservations() {
-
+export async function acceptReservation(event_id, reservation_id) {
     const token = cookies().get(`${process.env.COOKIES_PREFIX}next-auth.session-token`).value;
     const user_id = cookies().get('user_id').value;
-
-
     const jwt_token = await fromJWEtoJWT(token);
 
     const query = `
-        query {
-            userReservations(userId: ${user_id}) {
-                status
-                event {
-                    description
-                    fee
+            mutation {
+                acceptReservation(
+                    eventId: ${event_id},
+                    reservationId: ${reservation_id}
+                )
+                {
                     id
-                    location
-                    schedule
-                    maxCapacity
-                    name
-                    reservations {
-                        id
-                        status
-                    }
+                    status
                 }
-                id
-                createdAt
             }
-        }`
-
+            `;
     const response = await fetch(`${process.env.SERVER_URL}/graphql`, {
         method: 'POST',
         headers: {

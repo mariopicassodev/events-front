@@ -1,17 +1,18 @@
-"use client"
-import { useState } from "react";
-import { useEffect } from "react";
+'use client';
+import { useEffect } from 'react';
 
-export default function Toast({ message, type, onClose }) {
-
+export default function Toast({ message, type, visible, onClose }) {
     useEffect(() => {
-        const timer = setTimeout(() => {
-            onClose();
-        }, 3000);
+        if (visible) {
+            const timer = setTimeout(() => {
+                onClose();
+            }, 3000); // Close the toast after 3 seconds
 
-        // Cleanup the timer if the component unmounts before the timer completes
-        return () => clearTimeout(timer);
-    }, [onClose]);
+            return () => clearTimeout(timer); // Clear the timeout if the component unmounts
+        }
+    }, [visible, onClose]);
+
+    if (!visible) return null;
 
     if (type === "error") {
         return (
@@ -43,12 +44,5 @@ export default function Toast({ message, type, onClose }) {
         );
     }
 
-    return (
-        <div className="toast toast-bottom toast-end z-50">
-            <div className={"alert alert-info"}>
-                <span>{message}</span>
-            </div>
-        </div>
-
-    );
+    return null;
 }
