@@ -8,6 +8,7 @@ export default async function InitPage({
     let response = null;
     if ((process.env.TRIGGER_DEPLOYMENT_URL).length > 0){
         response = await deployServer();
+        console.log(response);
     }
 
 
