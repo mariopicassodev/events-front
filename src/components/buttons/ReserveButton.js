@@ -70,7 +70,7 @@ export default function ReserveButton({ event, dictionary}) {
                     {dictionary.upcomingEvent.reserve}
                 </button>
             )}
-            {toast.visible && <Toast message={toast.message} type={toast.type} onClose={handleCloseToast} />}
+            <Toast message={toast.message} type={toast.type} visible={toast.visible} onClose={handleCloseToast} />
         </div>
     );
 }
