@@ -10,7 +10,7 @@ export async function rejectReservation(reservation_id) {
     const query = `
                 mutation {
                     rejectReservation(
-                        reservationId: ${reservation.id}
+                        reservationId: ${reservation_id}
                     )
                     {
                         id

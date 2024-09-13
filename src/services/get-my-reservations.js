@@ -20,6 +20,7 @@ export async function getMyReservations() {
                     fee
                     id
                     location
+                    schedule
                     maxCapacity
                     name
                     reservations {
