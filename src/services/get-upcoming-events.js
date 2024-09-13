@@ -5,7 +5,7 @@ import { fromJWEtoJWT } from '@/utils/jwt';
 
 export async function upcomingEvents() {
 
-    const token = cookies().get('next-auth.session-token').value;
+    const token = cookies().get(`${process.env.COOKIES_PREFIX}next-auth.session-token`).value;
     const jwt_token = await fromJWEtoJWT(token);
 
     const query = `

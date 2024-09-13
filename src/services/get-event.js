@@ -6,7 +6,7 @@ import { fromJWEtoJWT } from '@/utils/jwt';
 
 export default async function getEvent(eventId) {
 
-    const token = cookies().get('next-auth.session-token').value;
+    const token = cookies().get(`${process.env.COOKIES_PREFIX}next-auth.session-token`).value;
     const user_id = cookies().get('user_id').value;
 
     const jwt_token = await fromJWEtoJWT(token);
@@ -18,6 +18,7 @@ export default async function getEvent(eventId) {
                 maxCapacity
                 name
                 createdAt
+                schedule
                 reservations {
                     id
                     status

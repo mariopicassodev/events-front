@@ -3,7 +3,7 @@ import { cookies } from 'next/headers';
 import { fromJWEtoJWT } from '@/utils/jwt';
 
 export async function createReservation(event_id){
-    const token = cookies().get('next-auth.session-token').value;
+    const token = cookies().get(`${process.env.COOKIES_PREFIX}next-auth.session-token`).value;
     const user_id = cookies().get('user_id').value;
     const jwt_token = await fromJWEtoJWT(token);
 

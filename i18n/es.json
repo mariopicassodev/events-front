@@ -1,6 +1,7 @@
 {
     "init": {
-        "welcome": "Bienvenido!"
+        "welcome": "Bienvenido!",
+        "deploy": "El backend se está desplegando, por favor espere 5 minutos antes de iniciar sesión."
     },
     "navbar": {
         "logout": "Cerrar sesión",
@@ -59,5 +60,21 @@
         "time": "Hora",
         "fee": "Tarifa",
         "submit": "Crear evento"
+    },
+    "manageReservations": {
+        "title": "Reservas",
+        "location": "Ubicación",
+        "maxCapacity": "Capacidad",
+        "name": "Nombre",
+        "email": "Correo",
+        "status": "Estado",
+        "actions": "Acciones",
+        "PENDING": "Pendiente",
+        "ACCEPTED": "Aceptado",
+        "REJECTED": "Reachazado",
+        "accept": "Aceptar",
+        "reject": "Rechazar",
+        "successAccept": "Reserva aceptada!",
+        "successReject": "Reserva rechazada!"
     }
 }

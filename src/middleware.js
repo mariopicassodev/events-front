@@ -19,7 +19,16 @@ function getNextLocale(request) {
     return locale;
 }
 
-const protectedRoutes = ['/en/dashboard', '/es/dashboard']
+const protectedRoutes = [
+    '/en/events',
+    '/es/events',
+    '/en/my-events',
+    '/es/my-events',
+    '/en/reservations',
+    '/es/reservations',
+    '/en/create-event',
+    '/es/create-event'
+];
 
 export function middleware(request) {
     const pathname = request.nextUrl.pathname;
