@@ -122,7 +122,7 @@ export default function CreateEventForm( {dictionary} ) {
                     <button type="submit" className="btn btn-primary">{dictionary.createEvent.submit}</button>
                 </form>
             </div>
-            {toast.visible && <Toast message={toast.message} type={toast.type} onClose={handleCloseToast} />}
+            <Toast message={toast.message} type={toast.type} visible={toast.visible} onClose={handleCloseToast} />
         </div>
     );
 }
