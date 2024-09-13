@@ -17,7 +17,7 @@ export default function ReserveButton({ event, dictionary}) {
     };
 
 
-    const reserve = async () => {
+    const reserve = async (event) => {
 
         createReservation(event.id).then(response => {
             if (response.status !== 200) {
@@ -31,7 +31,7 @@ export default function ReserveButton({ event, dictionary}) {
         });
     }
 
-    const cancel = async () => {
+    const cancel = async (event) => {
         const reservation = reservations.find(reservation => reservation.event.id === event.id);
         cancelReservation(reservation.id).then(response => {
 
