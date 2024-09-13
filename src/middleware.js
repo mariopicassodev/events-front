@@ -34,7 +34,7 @@ export function middleware(request) {
     const pathname = request.nextUrl.pathname;
 
     // Check if the user is authenticated
-    const sessionCookie = cookies(request).get('next-auth.session-token');
+    const sessionCookie = cookies(request).get(`${process.env.COOKIES_PREFIX}next-auth.session-token`);
     const sessionToken = sessionCookie ? sessionCookie.value : null;
 
     const isProtectedRoute = protectedRoutes.includes(pathname);
